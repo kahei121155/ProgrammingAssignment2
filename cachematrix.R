@@ -1,12 +1,14 @@
-##A pair of functions that cache the inverse of a matrix
+#A pair of functions that cache the inverse of a matrix
 
-##Creates a special matrix object that cache its inverse
+#Creates a special matrix object that cache its inverse
 
 makeCacheMatrix <- function(x = matrix()) {
 	ans<-NULL
 	
 	set<-function(y){
 		x<<-y
+		#Assign the function argument "y" to variable "x"
+		#Variable "x" is originally in a different environment
 		ans<<-NULL
 	}
 	get<-function()x
@@ -18,7 +20,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-##Computes the inverse of the special matrix returned by makeCacheMatrix above
+#Computes the inverse of the special matrix returned by makeCacheMatrix above
+#Retrieve the inverse directly from the cache if the "matrix" has already been computed
 
 cacheSolve <- function(x, ...) {
 	ans<-x$getinverse()
